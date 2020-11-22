@@ -407,6 +407,7 @@ namespace NongFormat
                     byte[] hdrBuf = Encoding.UTF8.GetBytes (header);
                     byte[] tlrBuf = Encoding.UTF8.GetBytes ("\r\n--" + boundary + "--\r\n");
 
+                    ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
                     var req = (HttpWebRequest) WebRequest.Create ("https://www.exactaudiocopy.de/log/check.aspx");
                     req.ContentType = "multipart/form-data; boundary=" + boundary;
                     req.Method = "POST";
